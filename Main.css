@@ -15,12 +15,12 @@ nav {
     z-index: 1;
     white-space: nowrap;
 }
-#logo {
+/* #logo {
     height: 16vh;
     padding-left: 5vh;
     padding-top: 2vh;
     margin-top: 0vh;
-}
+} */
 #nav-socials {
     padding-top: 3.5rem;
     gap: 1.5rem;
