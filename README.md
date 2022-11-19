@@ -5,8 +5,5 @@
  
  contributors: Bryan Zhong (bryanz35), Anna Zhong (annazhong3)
  
- testing 
- 2
- 3
- wooga booga
->>>>>>> 67514bd398c253c5f88eca3e69e41096a811a9b0
+ Bryan Zhong is currently in freshman year at Green Level, and is looking to join NCSSM 
+ (shameless plug)
