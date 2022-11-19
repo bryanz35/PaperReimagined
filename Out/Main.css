@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+:root {
+    --bcolor: rgb(239,239,230,255);
+    --border-color: rgb(80, 109, 215); 
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    z-index: 1;
+    white-space: nowrap;
+}
+#logo {
+    height: 11vh;
+    padding-left: 9vh;
+    padding-top: 2vh;
+    margin-top: 0vh;
+}
+#nav-socials {
+    padding-top: 3.5rem;
+    gap: 1.5rem;
+}
+/*color on hover?? need instagram color*/
+/*color when mouse is near??*/
+/*save hover animation for a few seconds?*/
+.fa-facebook {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    transition: 1s;
+
+}
+.fa-facebook:hover {
+    color: rgb(59, 91, 152);
+
+}
+.fa-youtube{
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    transition: 1s;
+}
+.fa-youtube:hover {
+    color:crimson;
+}
+/*make instagram logo color fade in similar to youtube */
+.fa-instagram {
+    opacity: 1;
+    cursor: pointer;
+    color:rgb(255, 255, 255); 
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+    z-index: 1;
+    transition: opacity 0.5s linear; 
+}
+#instagram_id {
+    opacity: 1;
+    visibility: visible;
+}
+
+#instagram_id:hover::before {
+    visibility: visible;
+}
+.insta-background {
+    opacity: 1;
+    background: -webkit-radial-gradient(33% 100% circle, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+    background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;   
+    transition: opacity 0.5s linear;
+}
+
+
+/* opacity 1 -> opacity 0, hover makes it 0->1*/
+/*
+.fa-instagram::before {
+    opacity: 1;
+    background-position: 0%, 0%;
+    background-size: 0%, 0%;
+    background: -webkit-radial-gradient(33% 100% circle, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+    background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;   
+    transition: opacity 0.5s linear;
+    z-index: 0;
+}
+.fa-instagram:hover::before{
+    opacity: 1;
+}
+*/
+
+#nav-socials,
+#nav-contact-section {
+  flex-grow: 1;
+}
+
+#nav-logo-section {
+  flex-basis: calc(100% /3);
+  justify-content: flex-start;
+}
+
+
+#nav-links {
+    padding-top: 4rem;
+    flex-basis: 50%;
+    gap: 6rem; 
+}
+.links::after {
+    display: block;
+    content: attr(title);
+    font-weight: bold;
+    height: 1px;
+    color: transparent;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+nav .nav-section {
+    padding: 2rem 1rem;
+    padding-right: 3.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+#nav-mobile-section {
+    display: flex;
+    flex-basis: calc(100% * (2 / 3));
+    z-index: 2;
+}
+
+
+#nav-logo {
+  flex-basis: calc(100% / 4);
+  justify-content: flex-start;
+}
+*{
+    box-sizing: border-box;
+    color: black;
+}
+/* find a way to show user what panel they are in*/
+.underline-link{
+    font-weight: 700;
+    color:#ffffff;
+    transition: all .5s;
+}
+
+a {
+    color: rgba(0, 0, 0, 0.553);
+    position: relative;
+    text-decoration: none;
+    font-family: 'Poppins', Helvetica, sans-serif;
+
+}
+  
+.link-hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+    background: white;
+}
+  
+.link-hover:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+body {
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    width:100vw;
+    height: 100vh;
+}
+.slide {
+    width: 100vw;
+    height: 100vh;
+}
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 400vw;
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left;
+}
+.slide-one {
+    background: #f3b3b4;
+    background-size: auto 100vh;
+    background-repeat: repeat-x;
+    width: 100vw;
+    height: 100vh;
+}
+.slide-two {
+    background: rgba(188,207,142,255);
+    width: 100vw;
+    height: 100vh;
+}
+.slide-three {
+    background: #b6a7d6;
+    width: 100vw;
+    height: 100vh;
+}
+.slide-four {
+    background: #a2c2dd;
+    width: 100vw;
+    height: 100vh;
+}
+
+.outer-wrapper {
+    width: 100vh;
+    height: 100vw;
+    transform: rotate(-90deg) translateX(-100vh);
+    transform-origin: top left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display:none;
+}
+
