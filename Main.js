@@ -112,3 +112,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
   const hiddenElements = document.querySelectorAll('.hidden');
   hiddenElements.forEach((el) => observer.observe(el));
+//https://youtube.com/shorts/VTw2cUVFl1c?feature=share
