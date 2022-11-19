@@ -145,7 +145,7 @@ nav .nav-section {
 /* find a way to show user what panel they are in*/
 .underline-link{
     font-weight: 500;
-    color:#ffffff;
+    color:#000000;
     transition: all .5s;
 }
 
@@ -168,7 +168,7 @@ a {
     transform-origin: right;
     transform: scaleX(0);
     transition: transform .3s ease-in-out;
-    background: white;
+    background: rgb(0, 0, 0);
 }
   
 .link-hover:hover::before {
