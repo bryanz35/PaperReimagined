@@ -1,3 +1,4 @@
+/* --STUFF TO KNOW FOR ENTIRE WEBPAGE--*/
 /* colors: #f3b3b4 #bccf8e #b6a7d6 #f8da39 a2c2dd*/
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
@@ -7,6 +8,8 @@
     --cp-white: #f4f4f4;
 }
 
+/* --NAVIGATION BAR--*/
+
 nav {
     display: flex;
     width: 100%;
@@ -15,38 +18,38 @@ nav {
     z-index: 1;
     white-space: nowrap;
 }
-/* #logo {
-    height: 16vh;
-    padding-left: 5vh;
-    padding-top: 2vh;
-    margin-top: 0vh;
-} */
-#nav-socials {
-    padding-top: 3.5rem;
-    gap: 1.5rem;
-}
-/*color on hover?? need instagram color*/
-/*color when mouse is near??*/
-/*save hover animation for a few seconds?*/
+
+/* --"OUT INTENTION" PAGE--*/
+
+/* --"HOW TO PURCHASE" PAGE--*/
+
+/* --"EVENTS AND SIGN-UP" PAGE--*/
+
+/* --"PRODUCTS" PAGE--*/
+
+/* --"CONTACT" PAGE--*/
+
+/* facebook icon*/
 .fa-facebook {
     cursor: pointer;
     color: rgb(255, 255, 255);
-    transition: 1s;
-
+    /* transition: 1s; */
 }
 .fa-facebook:hover {
     color: rgb(59, 91, 152);
-
 }
+
+/* youtube icon*/
 .fa-youtube{
     cursor: pointer;
     color: rgb(255, 255, 255);
-    transition: 1s;
+    /* transition: 1s; */
 }
 .fa-youtube:hover {
     color:crimson;
 }
-/*make instagram logo color fade in similar to youtube */
+
+/*instagram icon */
 .fa-instagram {
     opacity: 1;
     cursor: pointer;
@@ -55,16 +58,15 @@ nav {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;  
     z-index: 1;
-    transition: opacity 0.5s linear; 
+    /* transition: opacity 0.5s linear;  */
 }
 #instagram_id {
     opacity: 1;
     visibility: visible;
-}
-
+} 
 #instagram_id:hover::before {
     visibility: visible;
-}
+} 
 .insta-background {
     opacity: 1;
     background: -webkit-radial-gradient(33% 100% circle, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
@@ -73,8 +75,6 @@ nav {
     -webkit-text-fill-color: transparent;   
     transition: opacity 0.5s linear;
 }
-
-
 /* opacity 1 -> opacity 0, hover makes it 0->1*/
 /*
 .fa-instagram::before {
@@ -92,16 +92,6 @@ nav {
     opacity: 1;
 }
 */
-
-#nav-socials,
-#nav-contact-section {
-  flex-grow: 1;
-}
-
-#nav-logo-section {
-  flex-basis: calc(100% /3);
-  justify-content: flex-start;
-}
 
 
 #nav-links {
