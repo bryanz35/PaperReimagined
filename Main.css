@@ -135,11 +135,11 @@ nav .nav-section {
 
 
 /* find a way to show user what panel they are in*/
-.underline-link{
+/* .underline-link{
     font-weight: 500;
     color:#000000;
     transition: all .5s;
-}
+} */
 
 a {
     color: rgba(0, 0, 0, 0.553);
