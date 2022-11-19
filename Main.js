@@ -105,9 +105,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         entry.target.classList.remove('show');
       }
       console.log(entry.intersectionRatio + entry)
-    }, {
-        threshold: 0.5,
-        root: document.querySelector("#three-events-flex")
     })
   });
   const hiddenElements = document.querySelectorAll('.hidden');

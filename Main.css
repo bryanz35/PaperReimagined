@@ -13,6 +13,48 @@
     --g3: rgb(253, 216, 53);
 }
 
+a {
+    color: rgba(0, 0, 0, 0.553);
+    position: relative;
+    text-decoration: none;
+    font-family: 'Poppins', Helvetica, sans-serif;
+
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    width:100vw;
+    height: 100vh;
+}
+
+/* implement horizontal scroll */
+.slide {
+    width: 100vw;
+    height: 100vh;
+}
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 500vw;
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left;
+}
+.outer-wrapper {
+    width: 100vh;
+    height: 100vw;
+    transform: rotate(-90deg) translateX(-100vh);
+    transform-origin: top left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.outer-wrapper::-webkit-scrollbar {
+    display:none;
+}
 /* --NAVIGATION BAR--*/
 
 nav {
@@ -25,9 +67,13 @@ nav {
 }
 
 #nav-links {
-    padding-top: 4rem;
-    flex-basis: 50%;
-    gap: 6rem; 
+    /* gap: 2.5rem;  */
+    gap: 6vw;
+    padding: 2rem 1rem;
+    display: flex;
+    margin-left:auto;
+    margin-right:auto;
+
 }
 .links::after {
     display: block;
@@ -39,14 +85,6 @@ nav {
     visibility: hidden;
 }
 
-nav .nav-section {
-    padding: 2rem 1rem;
-    padding-right: 3.5rem;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-}
 #nav-mobile-section {
     display: flex;
     flex-basis: calc(100% * (2 / 3));
@@ -59,96 +97,6 @@ nav .nav-section {
   justify-content: flex-start;
 }
 
-/* --"OUT INTENTION" PAGE--*/
-
-/* --"HOW TO PURCHASE" PAGE--*/
-
-/* --"EVENTS AND SIGN-UP" PAGE--*/
-
-/* --"PRODUCTS" PAGE--*/
-
-/* --"CONTACT" PAGE--*/
-
-/* facebook icon*/
-.fa-facebook {
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-    /* transition: 1s; */
-}
-.fa-facebook:hover {
-    color: rgb(59, 91, 152);
-}
-
-/* youtube icon*/
-.fa-youtube{
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-    /* transition: 1s; */
-}
-.fa-youtube:hover {
-    color:crimson;
-}
-
-/*instagram icon */
-.fa-instagram {
-    opacity: 1;
-    cursor: pointer;
-    color:rgb(255, 255, 255); 
-    background: white;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;  
-    z-index: 1;
-    /* transition: opacity 0.5s linear;  */
-}
-#instagram_id {
-    opacity: 1;
-    visibility: visible;
-} 
-#instagram_id:hover::before {
-    visibility: visible;
-} 
-.insta-background {
-    opacity: 1;
-    background: -webkit-radial-gradient(33% 100% circle, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
-    background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;   
-    transition: opacity 0.5s linear;
-}
-/* opacity 1 -> opacity 0, hover makes it 0->1*/
-/*
-.fa-instagram::before {
-    opacity: 1;
-    background-position: 0%, 0%;
-    background-size: 0%, 0%;
-    background: -webkit-radial-gradient(33% 100% circle, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
-    background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;   
-    transition: opacity 0.5s linear;
-    z-index: 0;
-}
-.fa-instagram:hover::before{
-    opacity: 1;
-}
-*/
-
-
-/* find a way to show user what panel they are in*/
-/* .underline-link{
-    font-weight: 500;
-    color:#000000;
-    transition: all .5s;
-} */
-
-a {
-    color: rgba(0, 0, 0, 0.553);
-    position: relative;
-    text-decoration: none;
-    font-family: 'Poppins', Helvetica, sans-serif;
-
-}
-  
 .link-hover::before {
     content: '';
     position: absolute;
@@ -167,24 +115,9 @@ a {
     transform-origin: left;
     transform: scaleX(1);
 }
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    width:100vw;
-    height: 100vh;
-}
-.slide {
-    width: 100vw;
-    height: 100vh;
-}
-.wrapper {
-    display: flex;
-    flex-direction: row;
-    width: 500vw;
-    transform: rotate(90deg) translateY(-100vh);
-    transform-origin: top left;
-}
+
+/* --"OUT INTENTION" PAGE--*/
+
 .slide-one {
     background: var(--cp-white);
     background-size: auto 100vh;
@@ -221,11 +154,17 @@ body {
 #one > h1, #one > h2, #one > p {
     color: black;
 }
+
+/* --"HOW TO PURCHASE" PAGE--*/
+
 .slide-two {
     background: var(--cp-white);
     width: 100vw;
     height: 100vh;
 }
+
+/* --"EVENTS AND SIGN-UP" PAGE--*/
+
 .three-event-date, .three-event-name{
     color: rgb(0, 0, 0);
     font-weight: 500;
@@ -316,17 +255,16 @@ body {
     grid-row: 1;
     padding-top: 0.5rem;
 }
+/* --"PRODUCTS" PAGE--*/
 
-.fa-pen-to-square {
-    grid-column: 3;
-    grid-row: 3;
-    
-}
 .slide-four {
     background: var(--cp-white);
     width: 100vw;
     height: 100vh;
 }
+
+/* --"CONTACT" PAGE--*/
+
 .box {
     aspect-ratio: 1 / 1.6;
     border:0.5vmin solid var(--border);
@@ -374,7 +312,7 @@ body {
     z-index: 1;
 }
 
-.card-content {
+.box-content {
         background-image: radial-gradient(
             /*color of dots, 8% is size of dots*/
             rgba(255, 255, 255, 0.2) 8%, 
@@ -401,16 +339,16 @@ body {
     margin: 0px;
 }
 
-.card-title {
+.box-title {
     font-size: 6vmin;
 }
 
-.card-subtitle {
+.box-subtitle {
     font-size: 3vmin; 
     margin-top: 2vmin;
 }
 
-.card-subtitle-word {
+.bpx-subtitle-word {
     display: inline-block;
     margin: 0vmin 0.04vmin;
     opacity: 0;
@@ -419,7 +357,7 @@ body {
     transition: 200ms; 
 }
 
-.card-icon {
+.box-icon {
     bottom: 0px;
     color: rgba(255, 255, 255, 0.5);
     font-size: 7vmin;
@@ -434,20 +372,70 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
 /*make text #433f3d*/
 
-.outer-wrapper {
-    width: 100vh;
-    height: 100vw;
-    transform: rotate(-90deg) translateX(-100vh);
-    transform-origin: top left;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    position: absolute;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+/* facebook icon*/
+.fa-facebook {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    /* transition: 1s; */
 }
-.outer-wrapper::-webkit-scrollbar {
-    display:none;
+.fa-facebook:hover {
+    color: rgb(59, 91, 152);
 }
+
+/* youtube icon*/
+.fa-youtube{
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    /* transition: 1s; */
+}
+.fa-youtube:hover {
+    color:crimson;
+}
+
+/*instagram icon */
+.fa-instagram {
+    opacity: 1;
+    cursor: pointer;
+    color:rgb(255, 255, 255); 
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+    z-index: 1;
+    /* transition: opacity 0.5s linear;  */
+}
+#instagram_id {
+    opacity: 1;
+    visibility: visible;
+} 
+#instagram_id:hover::before {
+    visibility: visible;
+} 
+.insta-background {
+    opacity: 1;
+    background: -webkit-radial-gradient(33% 100% circle, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+    background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;   
+    transition: opacity 0.5s linear;
+}
+/* opacity 1 -> opacity 0, hover makes it 0->1*/
+/*
+.fa-instagram::before {
+    opacity: 1;
+    background-position: 0%, 0%;
+    background-size: 0%, 0%;
+    background: -webkit-radial-gradient(33% 100% circle, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+    background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;   
+    transition: opacity 0.5s linear;
+    z-index: 0;
+}
+.fa-instagram:hover::before{
+    opacity: 1;
+}
+*/
 
