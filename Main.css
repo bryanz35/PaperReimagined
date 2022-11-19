@@ -5,6 +5,11 @@
     --bcolor: rgb(239,239,230,255);
     --border-color: rgb(80, 109, 215); 
     --cp-white: #f4f4f4;
+    --border: rgb(3, 169, 244);
+    
+    --g1: rgb(98, 0, 234);
+    --g2: rgb(236, 64, 122);
+    --g3: rgb(253, 216, 53);
 }
 
 nav {
@@ -344,24 +349,24 @@ body {
     margin: 5vh;
 }
 
-.card:hover:before{
+.box:hover:before{
     background-position: 100% 100%;
     transform: scale(1.05, 1.03);
 }
 
-.card:hover > .card-content {
+.box:hover > .card-content {
     background-position: -10% 0%;
 }
-.card:hover > .card-icon { 
+.box:hover > .card-icon { 
     color: white;
 }
-.card:hover > .card-content > .card-subtitle > 
+.box:hover > .card-content > .card-subtitle > 
 .card-subtitle-word{
     opacity: 1;
     transform: translateY(0%);
     transition: opacity 0ms, transform 200ms cubic bezier(.90, .06, .15, .90);
 }
-.card:before {
+.box:before {
     background:linear-gradient(
         130deg,
         transparent 0% 33%,
