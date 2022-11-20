@@ -1,6 +1,24 @@
 const links = document.querySelectorAll(".links");
 const slides = document.querySelectorAll(".slide");
+const wrapper = document.getElementById("outer-wrapper");
+const circle = document.getElementById('spotlight');
 
+let mousex = 0;
+let mousey = 0;
+
+wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
+    let left = e.clientX;
+    let top = e.clientY;
+    circle.style.left = left + 'px';
+    circle.style.top = top + 'px';
+    mousex = e.clientX;
+    mousey = e.clientY;
+  });
+wrapper.addEventListener('scroll', function(e) {
+    console.log(mousex);
+    circle.style.left = mousex + 'px';
+
+});
 let insta = document.getElementById("instagram_id");
 insta.addEventListener("mouseleave", function (event) {
     if(insta.classList.contains("insta-background")) {
@@ -42,14 +60,14 @@ function arraysEqual(a, b) {
 links.forEach(link => {
     link.addEventListener('click', function () {
         links.forEach((link2) => {
-            if(link2.classList.contains("underline-link")) link2.classList.remove("underline-link");
+            if(link2.classList.contains("bolden-link")) link2.classList.remove("bolden-link");
         })
-        link.classList.add("underline-link");
+        link.classList.add("bolden-link");
         
     });
 });
 const windowcontainer = document.querySelectorAll('outer-wrapper');
-document.addEventListener('wheel', function(){
+document.addEventListener('wheel', function(){ 
     let i = 0;
     const slides_active2 = []
     
@@ -63,9 +81,9 @@ document.addEventListener('wheel', function(){
             let j = 0; 
             links.forEach((link) => {
                 if(j === slides_active2.indexOf(true)){
-                    link.classList.add("underline-link");
-                } else if(link.classList.contains("underline-link")) {
-                    link.classList.remove("underline-link");
+                    link.classList.add("bolden-link");
+                } else if(link.classList.contains("bolden-link")) {
+                    link.classList.remove("bolden-link");
                 }
                 j++;
                 //add to a link-normal that will take the place of "a" when transition is done
