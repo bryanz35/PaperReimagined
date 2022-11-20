@@ -39,7 +39,9 @@ body {
 #wrapper {
     display: flex;
     flex-direction: row;
+    /*width must be the sum of all slide widths to maintain same ratio*/
     width: 600vw;
+    /*dw about the rest*/
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
     scrollbar-width: none;
@@ -136,8 +138,8 @@ nav {
     height: 25vh;
     width: 25vh;
     border-radius: 50%;
-    background-color: #a2c2dd;
-    z-index: 0;
+    background-color: #a2c4dd;
+    z-index: 1;
     transform: translateX(-50%) translateY(-50%);
     /* border: 2px solid black; */
 }
@@ -166,22 +168,22 @@ nav {
 
 #one-text1 {
     font-size: 20pt;
-    grid-row: 3/5;
-    grid-column: 12/16;
+    grid-row: 3/4;
+    grid-column: 10/16;
     z-index: 3;
 }
 
 #one-text2 {
     font-size: 20pt;
-    grid-row: 6/8;
-    grid-column: 12/16;
+    grid-row: 5/6;
+    grid-column: 10/16;
     z-index: 3;
 }
 
 #one-text3 {
     font-size: 20pt;
-    grid-row: 9/12;
-    grid-column: 12/16;
+    grid-row: 10/14;
+    grid-column: 10/16;
     z-index: 3;
 }
 
@@ -207,6 +209,14 @@ nav {
     height: 100vh;
 }
 
+#stand {
+    height: 30vh;
+}
+
+#price-tags {
+    height: 30vh;
+}
+
 /* --"EVENTS AND SIGN-UP" PAGE--*/
 
 .three-event-date,
@@ -221,7 +231,7 @@ nav {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 14fr 5fr;
-    grid-template-rows: 4fr repeat(4, minmax(0, 3fr)) 1fr;
+    grid-template-rows: minmax(0, 4fr) repeat(4, minmax(0, 3fr)) minmax(0, 1fr);
     grid-gap: 10px;
     font-weight: 500;
 
@@ -326,12 +336,14 @@ nav {
 /* --"CONTACT" PAGE--*/
 
 .box {
-    aspect-ratio: 1 / 1.6;
+    aspect-ratio: 1 / 1.2;
     border: 0.5vmin solid var(--border);
     cursor: pointer;
     position: relative;
-    width: 56vmin;
+    width: 49vmin;
     margin: 5vh;
+    grid-row: 1/4;
+    max-height: 70%;
 }
 
 .box:hover:before {
@@ -435,6 +447,8 @@ nav {
     background: var(--cp-white);
     width: 100vw;
     height: 100vh;
+    grid-template-columns: 1fr 14fr 5fr;
+    grid-template-rows: minmax(0, 4fr) repeat(4, minmax(0, 3fr)) minmax(0, 1fr);
 }
 
 /*make text #433f3d*/
@@ -491,6 +505,10 @@ nav {
     transition: opacity 0.5s linear;
 }
 
+#credits {
+    grid-column: 8;
+    grid-row: 1;
+}
 /* opacity 1 -> opacity 0, hover makes it 0->1*/
 /*
 .fa-instagram::before {

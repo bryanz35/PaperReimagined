@@ -3,21 +3,20 @@ const slides = document.querySelectorAll(".slide");
 const wrapper = document.getElementById("outer-wrapper");
 const circle = document.getElementById('spotlight');
 
-let mousex = 0;
-let mousey = 0;
-
+let circx = 0;
+let currentcircx = parseInt(circle.style.left.replace("px", ""));
 wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
     let left = e.clientX;
     let top = e.clientY;
-    circle.style.left = left + 'px';
+    circle.style.left = (wrapper.scrollTop + left) + 'px';
     circle.style.top = top + 'px';
-    mousex = e.clientX;
-    mousey = e.clientY;
+    circx = e.clientX;
+    console.log(currentcircx);
   });
-wrapper.addEventListener('scroll', function(e) {
-    console.log(mousex);
-    circle.style.left = mousex + 'px';
-
+wrapper.addEventListener('scroll', (e) => {
+    circle.style.left = circx + wrapper.scrollTop + 'px';
+    console.log(wrapper.scrollTop + wrapper.scrollLeft);
+    currentcircx = parseInt(circle.style.left.replace("px", ""));
 });
 let insta = document.getElementById("instagram_id");
 insta.addEventListener("mouseleave", function (event) {
