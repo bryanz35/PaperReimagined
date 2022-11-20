@@ -40,7 +40,7 @@ body {
     display: flex;
     flex-direction: row;
     /*width must be the sum of all slide widths to maintain same ratio*/
-    width: 600vw;
+    width: 1000vw;
     /*dw about the rest*/
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
@@ -144,13 +144,17 @@ nav {
     /* border: 2px solid black; */
 }
 
+.slide-two, .slide-three, .slide-four, .slide-five {
+    border-left: rgb(175, 175, 175) 1px solid;
+}
+
 /* --"OUT INTENTION" PAGE--*/
 
 .slide-one {
     background: var(--cp-white);
     background-size: auto 100vh;
     background-repeat: repeat-x;
-    width: 300vw;
+    width: 400vw;
     height: 100vh;
     /* display: grid;
     grid-template-columns: repeat(16, minmax(0, 1fr));
@@ -170,41 +174,42 @@ nav {
     z-index: 5;
 }
 
-#one-text1 {
-    font-size: 4vh;
-    grid-row: 2;
-    grid-column: 3;
+#one-text1, #one-text2, #one-text3 {
     z-index: 3;
     max-width: 60vw;
+    min-width: 500px;
+}
+
+#one-text1 {
+    font-size: 3vh;
+    grid-row: 2;
+    grid-column: 3;
 }
 
 #one-text2 {
-    font-size: 4vh;
+    font-size: 3vh;
     grid-row: 3/4;
     grid-column: 3;
-    z-index: 3;
-    max-width: 60vw;
 }
 
 #one-text3 {
-    font-size: 4vh;
+    font-size: 3vh;
     grid-row: 5;
     grid-column: 3;
-    z-index: 3;
-    max-width: 60vw;
 }
 
 #one-froggie {
     grid-row: 3;
-    grid-column: 1/2;
+    grid-column: 2;
     height: 19vh;
     z-index: 4;
-
 }
 
 #one-big-statement {
     height:20vh;
     grid-column: 4;
+    grid-row: 5;
+    z-index: 3;
 }
 
 #one>h1,
@@ -213,20 +218,87 @@ nav {
     color: black;
 }
 
+#one-1, #one-2, #one-3, #one-4, #one-5 {
+    height: 25vh;
+    margin-right:8vh;
+    z-index:3;
+}
+
+#one-1 {
+    grid-column:5;
+    grid-row:2;
+}
+#one-2 {
+    grid-column:6;
+    grid-row:2;
+}
+#one-3 {
+    grid-column:7;
+    grid-row:2;
+}
+#one-4 {
+    grid-column:6;
+    grid-row:3;
+}
+#one-5 {
+    grid-column:7;
+    grid-row:3;
+}
+
 /* --"HOW TO PURCHASE" PAGE--*/
 
 .slide-two {
     background: var(--cp-white);
-    width: 100vw;
+    width: 400vw;
     height: 100vh;
+    border-left: rgb(175, 175, 175) 1px solid;
+    display: grid;
+    grid-template-columns: minmax(0fr, 2fr) repeat(9, minmax(0fr, 6fr)) minmax(0fr, 2fr);
+    grid-template-rows: minmax(0fr, 2fr) repeat(4, minmax(0fr, 3fr)) minmax(0fr, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+#two-purchase {
+    height:25vh;
+    grid-row:2;
+    grid-column:2;
 }
 
 #stand {
-    height: 30vh;
+    height: 40vh;
+    grid-row:3/4;
+    grid-column:3/4;
+}
+
+#step-one {
+    grid-row:5;
+    grid-column: 3/4;
+    max-width: 300px;
 }
 
 #price-tags {
     height: 30vh;
+    grid-row:3;
+    grid-column: 5/6;
+}
+
+#step-two {
+    grid-row:2;
+    grid-column: 5/6;
+    max-width: 300px;
+}
+
+#step-three {
+    grid-row:3;
+    grid-column: 7/8;
+    max-width: 300px;
+}
+
+#payment-note {
+    grid-row:4;
+    grid-column: 7/8;
+    max-width: 300px;
 }
 
 /* --"EVENTS AND SIGN-UP" PAGE--*/
@@ -239,7 +311,7 @@ nav {
 
 .slide-three {
     background: #f4f4f4;
-    width: 100vw;
+    width: 300vw;
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 14fr 5fr;
