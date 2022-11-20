@@ -70,7 +70,7 @@ nav {
     width: 100%;
     background-color: transparent;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     white-space: nowrap;
 }
 
@@ -150,49 +150,61 @@ nav {
     background: var(--cp-white);
     background-size: auto 100vh;
     background-repeat: repeat-x;
-    width: 200vw;
+    width: 300vw;
     height: 100vh;
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(16, minmax(0, 1fr));
-    /*16 total?*/
     grid-template-rows: 2fr repeat(7, minmax(0, 1fr)) minmax(0, 2fr) repeat(3, minmax(0, 1fr));
-    /*13 total?*/
-    grid-gap: 10px;
+    grid-gap: 10px; */
+    display: grid;
+    grid-template-columns: minmax(0fr, 1fr) minmax(0fr, 10fr) minmax(0fr, 12fr) minmax(0fr, 8fr) repeat(3, minmax(0fr, 3fr)) minmax(0fr, 1fr);
+    grid-template-rows: repeat(4, minmax(0, 3fr)) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
 
 #homepageLogo {
-    height: 80vh;
-    grid-row: 3/8;
+    height: 45vh;
+    grid-row: 4;
+    grid-column: 1/2;
     z-index: 5;
 }
 
 #one-text1 {
-    font-size: 20pt;
-    grid-row: 3/4;
-    grid-column: 10/16;
+    font-size: 4vh;
+    grid-row: 2;
+    grid-column: 3;
     z-index: 3;
+    max-width: 60vw;
 }
 
 #one-text2 {
-    font-size: 20pt;
-    grid-row: 5/6;
-    grid-column: 10/16;
+    font-size: 4vh;
+    grid-row: 3/4;
+    grid-column: 3;
     z-index: 3;
+    max-width: 60vw;
 }
 
 #one-text3 {
-    font-size: 20pt;
-    grid-row: 10/14;
-    grid-column: 10/16;
+    font-size: 4vh;
+    grid-row: 5;
+    grid-column: 3;
     z-index: 3;
+    max-width: 60vw;
 }
 
 #one-froggie {
-    grid-row: 5/8;
-    grid-column: 6/9;
+    grid-row: 3;
+    grid-column: 1/2;
     height: 19vh;
     z-index: 4;
 
+}
+
+#one-big-statement {
+    height:20vh;
+    grid-column: 4;
 }
 
 #one>h1,
