@@ -1,6 +1,23 @@
 const links = document.querySelectorAll(".links");
 const slides = document.querySelectorAll(".slide");
+const wrapper = document.getElementById("outer-wrapper");
+const circle = document.getElementById('spotlight');
 
+let circx = 0;
+let currentcircx = parseInt(circle.style.left.replace("px", ""));
+wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
+    let left = e.clientX;
+    let top = e.clientY;
+    circle.style.left = (wrapper.scrollTop + left) + 'px';
+    circle.style.top = top + 'px';
+    circx = e.clientX;
+    console.log(currentcircx);
+  });
+wrapper.addEventListener('scroll', (e) => {
+    circle.style.left = circx + wrapper.scrollTop + 'px';
+    console.log(wrapper.scrollTop + wrapper.scrollLeft);
+    currentcircx = parseInt(circle.style.left.replace("px", ""));
+});
 let insta = document.getElementById("instagram_id");
 insta.addEventListener("mouseleave", function (event) {
     if(insta.classList.contains("insta-background")) {
@@ -42,14 +59,14 @@ function arraysEqual(a, b) {
 links.forEach(link => {
     link.addEventListener('click', function () {
         links.forEach((link2) => {
-            if(link2.classList.contains("underline-link")) link2.classList.remove("underline-link");
+            if(link2.classList.contains("bolden-link")) link2.classList.remove("bolden-link");
         })
-        link.classList.add("underline-link");
+        link.classList.add("bolden-link");
         
     });
 });
 const windowcontainer = document.querySelectorAll('outer-wrapper');
-document.addEventListener('wheel', function(){
+document.addEventListener('wheel', function(){ 
     let i = 0;
     const slides_active2 = []
     
@@ -63,9 +80,9 @@ document.addEventListener('wheel', function(){
             let j = 0; 
             links.forEach((link) => {
                 if(j === slides_active2.indexOf(true)){
-                    link.classList.add("underline-link");
-                } else if(link.classList.contains("underline-link")) {
-                    link.classList.remove("underline-link");
+                    link.classList.add("bolden-link");
+                } else if(link.classList.contains("bolden-link")) {
+                    link.classList.remove("bolden-link");
                 }
                 j++;
                 //add to a link-normal that will take the place of "a" when transition is done
@@ -105,9 +122,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         entry.target.classList.remove('show');
       }
       console.log(entry.intersectionRatio + entry)
-    }, {
-        threshold: 0.5,
-        root: document.querySelector("#three-events-flex")
     })
   });
   const hiddenElements = document.querySelectorAll('.hidden');
