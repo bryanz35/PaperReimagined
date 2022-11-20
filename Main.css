@@ -40,7 +40,7 @@ body {
     display: flex;
     flex-direction: row;
     /*width must be the sum of all slide widths to maintain same ratio*/
-    width: 1000vw;
+    width: 1300vw;
     /*dw about the rest*/
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
@@ -161,6 +161,7 @@ nav {
     grid-template-rows: 2fr repeat(7, minmax(0, 1fr)) minmax(0, 2fr) repeat(3, minmax(0, 1fr));
     grid-gap: 10px; */
     display: grid;
+    /*1fr 10fr 12fr 8fr 3fr 3fr 3fr 1fr, total 41 frs*/
     grid-template-columns: minmax(0fr, 1fr) minmax(0fr, 10fr) minmax(0fr, 12fr) minmax(0fr, 8fr) repeat(3, minmax(0fr, 3fr)) minmax(0fr, 1fr);
     grid-template-rows: repeat(4, minmax(0, 3fr)) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1fr);
     grid-column-gap: 0px;
@@ -421,15 +422,53 @@ nav {
 
 .slide-four {
     background: var(--cp-white);
-    width: 100vw;
+    width: 200vw;
     height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0fr, 1fr) repeat(5, minmax(0fr, 6fr)) minmax(0fr, 1fr);
+    grid-template-rows: minmax(0fr, 3fr) minmax(0fr, 6fr) minmax(0fr, 2fr) minmax(0fr, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
+
+#product-message {
+    height: 20vh;
+    grid-row:2;
+    grid-column: 2;
+}
+
+#product-1, #product-2, #product-3, #product-4 {
+    height: 60vh;
+    margin: 20px;
+    /* grid-row:2; */
+}
+
+#product-container {
+    grid-column: 3/6;
+    grid-row:2
+} 
+
+/* #product-1 {
+    grid-column: 3;
+}
+
+#product-2 {
+    grid-column: 4;
+}
+
+#product-3 {
+    grid-column: 5;
+}
+
+#product-4 {
+    grid-column: 6;
+}  */
 
 /* --"CONTACT" PAGE--*/
 
 .slide-five {
     background: var(--cp-white);
-    width: 100vw;
+    width: 200vw;
     height: 100vh;
     grid-template-columns: 1fr 14fr 5fr;
     grid-template-rows: minmax(0, 4fr) repeat(4, minmax(0, 3fr)) minmax(0, 1fr);
@@ -440,10 +479,12 @@ nav {
     border: 0.5vmin solid var(--border);
     cursor: pointer;
     position: relative;
-    width: 49vmin;
+    /* width: 49vmin; */
+    width: 60vw;
     margin: 5vh;
-    grid-row: 1/4;
-    max-height: 70%;
+    grid-row: 3/4;
+    /* max-height: 70%; */
+    height:90vh;
 }
 
 .box:hover:before {
@@ -628,8 +669,10 @@ nav {
 }
 
 #credits {
-    grid-column: 8;
-    grid-row: 1;
+    grid-column: 1;
+    /* grid-row: 1; */
+    /* transform: rotate(-90deg); */
+    z-index: 50;
 }
 /* opacity 1 -> opacity 0, hover makes it 0->1*/
 /*

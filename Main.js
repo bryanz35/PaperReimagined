@@ -13,10 +13,41 @@ wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
     circx = e.clientX;
     console.log(currentcircx);
   });
+//throttle scroll event, maybe with iodash?? 
 wrapper.addEventListener('scroll', (e) => {
     circle.style.left = circx + wrapper.scrollTop + 'px';
     console.log(wrapper.scrollTop + wrapper.scrollLeft);
     currentcircx = parseInt(circle.style.left.replace("px", ""));
+
+    let i = 0;
+    const slides_active2 = []
+    
+    slides.forEach(slide =>{
+        const inView = isInViewport(slide)
+        slides_active2.push(inView)
+    })
+    if(arraysEqual(slides_active, slides_active2)) {
+        // has changed and is not all false
+        if(slides_active2.indexOf(true) !== -1) {
+            let j = 0; 
+            links.forEach((link) => {
+                if(j === slides_active2.indexOf(true)){
+                    link.classList.add("bolden-link");
+                } else if(link.classList.contains("bolden-link")) {
+                    link.classList.remove("bolden-link");
+                }
+                j++;
+                //add to a link-normal that will take the place of "a" when transition is done
+                //gave up and just made the text bold instead oh well
+                //also just realized my logic is reversed so the code should have run when !arraysEqual
+            })
+        }
+        //console.log('equal');
+        //console.log('index: ' + slides_active2.indexOf(true));
+    }
+    //console.log(slides_active2);
+
+    slides_active = Array.from(slides_active2);
 });
 let insta = document.getElementById("instagram_id");
 insta.addEventListener("mouseleave", function (event) {
@@ -30,10 +61,10 @@ insta.addEventListener("mouseover", function (event) {
 }, false);
 
 var slides_active = [false, false, false, false];
+//todo: check viewport position and update based on if rect.left is less 
 function isInViewport(el) {
     const rect = el.getBoundingClientRect();
     return (
-        rect.left >= -1 * (window.innerWidth/3) && 
         rect.left <= (window.innerWidth / 3) &&
         rect.right >= window.innerWidth * 2 / 3
     );
@@ -66,37 +97,7 @@ links.forEach(link => {
     });
 });
 const windowcontainer = document.querySelectorAll('outer-wrapper');
-document.addEventListener('wheel', function(){ 
-    let i = 0;
-    const slides_active2 = []
-    
-    slides.forEach(slide =>{
-        const inView = isInViewport(slide)
-        slides_active2.push(inView)
-    })
-    if(arraysEqual(slides_active, slides_active2)) {
-        // has changed and is not all false
-        if(slides_active2.indexOf(true) !== -1) {
-            let j = 0; 
-            links.forEach((link) => {
-                if(j === slides_active2.indexOf(true)){
-                    link.classList.add("bolden-link");
-                } else if(link.classList.contains("bolden-link")) {
-                    link.classList.remove("bolden-link");
-                }
-                j++;
-                //add to a link-normal that will take the place of "a" when transition is done
-                //gave up and just made the text bold instead oh well
-                //also just realized my logic is reversed so the code should have run when !arraysEqual
-            })
-        }
-        //console.log('equal');
-        //console.log('index: ' + slides_active2.indexOf(true));
-    }
-    //console.log(slides_active2);
 
-    slides_active = Array.from(slides_active2);
-});
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
