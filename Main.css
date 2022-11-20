@@ -504,15 +504,18 @@ nav {
 
 
 .box-title {
+    position: absolute;
     font-size: 6vmin;
 }
 
 .box-subtitle {
+    position: absolute;
     font-size: 3vmin;
     margin-top: 2vmin;
 }
 
 .box-subtitle-word {
+    position: absolute;
     display: inline-block;
     margin: 0vmin 0.04vmin;
     opacity: 0;
@@ -533,16 +536,43 @@ nav {
 }
 
 /*box is 35vmin by 56vmin, may change in the future*/
-#box-sub-1 {
-    transform: translateX(-7vmin) translateY(15vmin) rotate(60deg);
+.box-sub-1 {
+    position: absolute;
+    top: 40vmin;
+    left: -1vmin;
+    transform: rotate(60deg);
+    transition: all 0.5s;
+}
+.box:hover .box-sub-1{
+    top: 30vmin;
+    left: 5vmin;
+    transform: rotate(0deg);
+    transition: all 0.5s;
+}
+.box-sub-2 {
+    position: absolute;
+    top:30vmin;
+    left: 20vmin;
+    transform: rotate(-18deg);
+    transition: all 0.5s;
+}
+.box:hover .box-sub-2{
+    top: 34vmin;
+    left: 5vmin;
+    transform: rotate(0deg);
+    transition: all 0.5s;
 }
 
-#box-sub-2 {
-    transform: translateX(23vmin) translateY(-7vmin) rotate(-18deg);
+.box-sub-3 {
+    top: 5vmin;
+    position: absolute;
+    transition: all 0.5s;
 }
-
-#box-sub-3 {}
-
+.box:hover .box-sub-3 {
+    top: 38vmin;
+    left: 5vmin;
+    transition: all 0.5s;
+}
 /*make text #433f3d*/
 
 /* facebook icon*/
