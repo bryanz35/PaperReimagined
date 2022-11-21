@@ -40,7 +40,7 @@ body {
     display: flex;
     flex-direction: row;
     /*width must be the sum of all slide widths to maintain same ratio*/
-    width: 1450vw;
+    width: 950vw;
     /*dw about the rest*/
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
@@ -144,9 +144,9 @@ nav {
     /* border: 2px solid black; */
 }
 
-.slide-two,
+.slide-products,
 .slide-three,
-.slide-four,
+.slide-purchase,
 .slide-five {
     border-left: rgb(175, 175, 175) 1px solid;
 }
@@ -165,7 +165,7 @@ nav {
     grid-gap: 10px; */
     display: grid;
     /*1fr 10fr 12fr 8fr 3fr 3fr 3fr 1fr, total 41 frs, 10*/
-    grid-template-columns: minmax(0fr, 1fr) minmax(0fr, 10fr) repeat(3, minmax(0fr, 4fr)) minmax(0fr, 8fr) repeat(3, minmax(0fr, 3fr)) minmax(0fr, 1fr);
+    grid-template-columns: minmax(0fr, 1fr) minmax(0fr, 10fr) repeat(3, minmax(0fr, 4fr)) minmax(0fr, 8fr) minmax(0fr, 3fr);
     grid-template-rows: repeat(4, minmax(0, 3fr)) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -187,9 +187,6 @@ nav {
 }
 
 #one-text1 {
-    top: 1vh;
-    left: 100vw;
-    position: sticky;
     font-size: 3vh;
     grid-row: 2;
     grid-column: 3;
@@ -281,9 +278,9 @@ nav {
 
 /* --"HOW TO PURCHASE" PAGE--*/
 
-.slide-two {
+.slide-purchase {
     background: var(--cp-white);
-    width: 400vw;
+    width: 150vw;
     height: 100vh;
     border-left: rgb(175, 175, 175) 1px solid;
     display: grid;
@@ -345,11 +342,12 @@ nav {
 
 .slide-three {
     background: #f4f4f4;
-    width: 300vw;
+    width: 150vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 14fr 5fr minmax(0fr, 10fr);
-    grid-template-rows: minmax(0, 4fr) repeat(4, minmax(0, 3fr)) minmax(0, 1fr);
+    /*event boxes are maxed at a width of 60vw, so 2nd column should be maxed at 80vw or so in fr*/
+    grid-template-columns: minmax(0, 1fr) minmax(0, 20fr) minmax(0, 13fr);
+    grid-template-rows: minmax(0, 3fr) minmax(0, 2fr) repeat(4, minmax(0, 3fr)) minmax(0, 1fr);
     grid-gap: 10px;
     font-weight: 500;
 
@@ -359,14 +357,14 @@ nav {
     display: flex;
     flex-direction: column;
     grid-column: 2;
-    grid-row: 2/6;
+    grid-row: 3/6;
     gap: 10px;
     flex-wrap: nowrap;
     justify-content: space-between;
     overflow-y: scroll;
-    min-height: 0;
-    min-width: 0;
+    min-height: 60vh;
     max-width: 60vw;
+    min-width: 50vh;
     z-index: 5;
 }
 
@@ -383,6 +381,9 @@ nav {
 #events-heading {
     color: #433f3d;
     font-size: 20pt;
+    grid-column: 2;
+    grid-row: 2;
+    padding-left: 2.3rem;
 }
 
 .cards {
@@ -390,14 +391,14 @@ nav {
     /* colors: #f3b3b4 #bccf8e #b6a7d6 #f8da39 a2c2dd*/
     border-radius: 5px;
     display: grid;
-    grid-template-columns: 56% 34% 10%;
-    grid-template-rows: 10% 65% 25%;
+    grid-template-columns: 40% 50% 10%;
+    grid-template-rows: 10% 55% 45%;
     gap: 7px;
     flex: calc(33% - .5rem);
     flex-grow: 1;
     flex-shrink: 1;
     /* height: 18vh; */
-    height: 200px;
+    /* height: 200px; */
     /* width:2000px; */
 }
 
@@ -449,7 +450,7 @@ nav {
 
 .three-event-desc {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 1/3;
     padding-top: 0.5rem;
 }
 
@@ -462,9 +463,9 @@ nav {
 
 /* --"PRODUCTS" PAGE--*/
 
-.slide-four {
+.slide-products {
     background: var(--cp-white);
-    width: 200vw;
+    width: calc(300vh + 20vw);
     height: 100vh;
     display: grid;
     grid-template-columns: minmax(0fr, 1fr) repeat(5, minmax(0fr, 6fr)) minmax(0fr, 1fr);
@@ -474,23 +475,38 @@ nav {
 }
 
 #product-message {
-    height: 20vh;
+    width: 40vh;
     grid-row: 2;
     grid-column: 2;
+    margin-right: 100px;
+    margin-left: 100px;
 }
 
 #product-1,
 #product-2,
 #product-3,
 #product-4 {
-    height: 60vh;
-    margin: 20px;
-    /* grid-row:2; */
+    width: 40vh;
 }
 
-#product-container {
-    grid-column: 3/6;
-    grid-row: 2
+.divTableProduct {
+    display: table;
+    margin-top: 15vh;
+    margin-left: 5vw;
+    padding-top: 10vh;
+    margin-right: 10vw
+}
+
+.divTableRowProduct {
+    display: table-row;
+}
+
+.divTableCellProduct {
+    display: table-cell;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 3vh;
+    height:50vh
 }
 
 /* #product-1 {
@@ -591,6 +607,11 @@ nav {
 .box-title {
     position: absolute;
     font-size: 6vmin;
+    transition: all 0.5s;
+}
+.box:hover .box-title{
+    transform: translateY(5vmin);
+    transition: all 0.5s;
 }
 
 .box-subtitle {
@@ -630,7 +651,7 @@ nav {
 }
 
 .box:hover .box-sub-1 {
-    top: 30vmin;
+    top: 39vmin;
     left: 5vmin;
     transform: rotate(0deg);
     transition: all 0.5s;
@@ -645,21 +666,24 @@ nav {
 }
 
 .box:hover .box-sub-2 {
-    top: 34vmin;
+    top: 44vmin;
     left: 5vmin;
     transform: rotate(0deg);
     transition: all 0.5s;
 }
 
 .box-sub-3 {
-    top: 5vmin;
+    top: 55vmin;
+    left: 18vmin;
+    transform: rotate(36deg);
     position: absolute;
     transition: all 0.5s;
 }
 
 .box:hover .box-sub-3 {
-    top: 38vmin;
+    top: 48vmin;
     left: 5vmin;
+    transform: rotate(0deg);
     transition: all 0.5s;
 }
 
@@ -725,6 +749,7 @@ nav {
     /* max-width: 70vw; */
     opacity: 1;
     white-space: wrap;
+    z-index: 2
     /* grid-row: 1; */
     /* transform: rotate(-90deg); */
 }

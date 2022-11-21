@@ -5,6 +5,7 @@ const circle = document.getElementById('spotlight');
 
 let circx = 0;
 let currentcircx = parseInt(circle.style.left.replace("px", ""));
+let stopShowingText = false;
 wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
     let left = e.clientX;
     let top = e.clientY;
@@ -14,7 +15,14 @@ wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
     console.log(currentcircx);
   });
 //throttle scroll event, maybe with iodash?? 
+
+//function to toggle hidden/shown classes based on current scroll distance >= or <=
 wrapper.addEventListener('scroll', (e) => {
+    if(wrapper.scrollTop >= 3500) {
+        stopShowingText = true;
+    } else {
+        stopShowingText = false;
+    }
     circle.style.left = circx + wrapper.scrollTop + 'px';
     console.log(wrapper.scrollTop + wrapper.scrollLeft);
     currentcircx = parseInt(circle.style.left.replace("px", ""));
@@ -48,6 +56,9 @@ wrapper.addEventListener('scroll', (e) => {
     //console.log(slides_active2);
 
     slides_active = Array.from(slides_active2);
+});
+document.addEventListener('click', (e) => {
+    console.log(wrapper.scrollTop);
 });
 let insta = document.getElementById("instagram_id");
 insta.addEventListener("mouseleave", function (event) {
@@ -115,6 +126,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
  * 
  * 
  */
+
  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
