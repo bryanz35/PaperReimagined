@@ -41,7 +41,7 @@ body {
     display: flex;
     flex-direction: row;
     /*width must be the sum of all slide widths to maintain same ratio*/
-    width: 1050vw;
+    width: calc(770vw + 615vh + 1200px);
     /*dw about the rest*/
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
@@ -282,7 +282,7 @@ nav {
 
 .slide-purchase {
     background: var(--cp-white);
-    width: calc(75vh + 60vh + 1200px + 30vh);
+    width: calc(165vh + 1200px);
     height: 100vh;
     border-left: rgb(175, 175, 175) 1px solid;
     display: grid;
