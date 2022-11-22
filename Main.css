@@ -282,11 +282,12 @@ nav {
 
 .slide-purchase {
     background: var(--cp-white);
-    width: 150vw;
+    width: calc(75vh + 60vh + 1200px + 30vh);
     height: 100vh;
     border-left: rgb(175, 175, 175) 1px solid;
     display: grid;
-    grid-template-columns: minmax(0fr, 2fr) repeat(9, minmax(0fr, 6fr)) minmax(0fr, 2fr);
+    /*only used up to 7-8??*/
+    grid-template-columns: minmax(0fr, 2fr) repeat(7, minmax(0fr, 6fr)) 10fr;
     grid-template-rows: minmax(0fr, 2fr) repeat(4, minmax(0fr, 3fr)) minmax(0fr, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -331,6 +332,7 @@ nav {
     grid-row: 3;
     grid-column: 7/8;
     max-width: 300px;
+    margin-right: 50px;
     z-index:3;
 }
 
@@ -351,11 +353,12 @@ nav {
 
 .slide-three {
     background: #f4f4f4;
-    width: 150vw;
+    width: 150vh;
+    min-width: 140vh;
     height: 100vh;
     display: grid;
     /*event boxes are maxed at a width of 60vw, so 2nd column should be maxed at 80vw or so in fr*/
-    grid-template-columns: minmax(0, 1fr) minmax(0, 20fr) minmax(0, 13fr);
+    grid-template-columns: minmax(0, 2fr) minmax(0, 15r) minmax(0, 13fr);
     grid-template-rows: minmax(0, 3fr) minmax(0, 2fr) repeat(4, minmax(0, 3fr)) minmax(0, 1fr);
     grid-gap: 10px;
     font-weight: 500;
@@ -368,11 +371,10 @@ nav {
     grid-column: 2;
     grid-row: 3/6;
     gap: 10px;
-    flex-wrap: nowrap;
     justify-content: space-between;
     overflow-y: scroll;
     min-height: 60vh;
-    max-width: 60vw;
+    max-width: 60vh;
     min-width: 50vh;
     z-index: 5;
 }
@@ -466,8 +468,7 @@ nav {
 }
 
 #join-us {
-    /* height: 25vh; */
-    width: 30vw;
+    height: 15vh;
     grid-row: 4/5;
     grid-column: 3;
     z-index: 3;

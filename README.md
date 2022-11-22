@@ -10,8 +10,7 @@
 #TODO:
  - make images not interactable as images (no dragging, no search for similar image, etc)
  - add border around images for spotlight
- - update spotlight as scroll dist increases
  - add text that appears as you scroll in and stays on screen (spotlight logic)
  - finally fix the box
  - add something to fill white space on first page (curved lines? see fireship video and "borrow" code)
- -set min max for last two slides width
+ - continue testing and convert everything into vh?? 
