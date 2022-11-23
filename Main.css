@@ -30,7 +30,15 @@ body {
     width: 100vw;
     height: 100vh;
 }
-
+.images {
+    /*user-drag exists, but vscode doesn't know that*/
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
 /* implement horizontal scroll */
 .slide {
     width: 100vw;
@@ -134,8 +142,9 @@ nav {
 }
 
 #spotlight {
-    position: absolute;
+    position: fixed;
     /* transform: translate(-50%, -50%); */
+    left: 590px;
     height: 25vh;
     width: 25vh;
     border-radius: 50%;
@@ -166,7 +175,7 @@ nav {
     grid-gap: 10px; */
     display: grid;
     /*1fr 10fr 12fr 8fr 3fr 3fr 3fr 1fr, total 41 frs, 10*/
-    grid-template-columns: minmax(0fr, 1fr) minmax(0fr, 10fr) repeat(3, minmax(0fr, 4fr)) minmax(0fr, 8fr) minmax(0fr, 3fr);
+    grid-template-columns: minmax(0fr, 1fr) minmax(0fr, 10fr) repeat(3, minmax(0fr, 4fr)) minmax(6fr, 10fr) minmax(0fr, 8fr) minmax(0fr, 3fr);
     grid-template-rows: repeat(4, minmax(0, 3fr)) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -188,23 +197,39 @@ nav {
 }
 
 #one-text1 {
+    top: 40px;
+    left: 30px;
     font-size: 3vh;
     grid-row: 2;
     grid-column: 3;
 }
 
 #one-text2 {
+    top: 40px;
+    left: 30px;
     font-size: 3vh;
     grid-row: 3/4;
     grid-column: 4;
 }
 
 #one-text3 {
+    top: 40px;
+    left: 30px;
     font-size: 3vh;
     grid-row: 5;
     grid-column: 5;
 }
-
+.text-hidden {
+    opacity: 0;
+    transform: translateY(7vh);
+    transition: all 1s;
+}
+.text-show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s;
+}
+/*make invisible element??*/
 #one-froggie {
     grid-row: 3;
     grid-column: 2;
@@ -214,7 +239,7 @@ nav {
 
 #one-big-statement {
     height: 20vh;
-    grid-column: 6;
+    grid-column: 7;
     grid-row: 5;
     z-index: 3;
 }
@@ -228,7 +253,7 @@ nav {
 .divTableStat {
     display: table;
     grid-row:2;
-    grid-column: 7;
+    grid-column: 8;
     max-width: 75vh;
     margin-right: none;
     padding-right: none;

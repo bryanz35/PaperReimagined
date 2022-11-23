@@ -3,9 +3,13 @@ const slides = document.querySelectorAll(".slide");
 const wrapper = document.getElementById("outer-wrapper");
 const circle = document.getElementById('spotlight');
 
+const text1 = document.getElementById('one-text1');
+console.log("left " + text1.style.left);
+
 let circx = 0;
 let currentcircx = parseInt(circle.style.left.replace("px", ""));
 let stopShowingText = false;
+let textPos = [];
 wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
     let left = e.clientX;
     let top = e.clientY;
@@ -24,7 +28,6 @@ wrapper.addEventListener('scroll', (e) => {
         stopShowingText = false;
     }
     circle.style.left = circx + wrapper.scrollTop + 'px';
-    console.log(wrapper.scrollTop + wrapper.scrollLeft);
     currentcircx = parseInt(circle.style.left.replace("px", ""));
 
     let i = 0;
@@ -137,6 +140,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       console.log(entry.intersectionRatio + entry)
     })
   });
-  const hiddenElements = document.querySelectorAll('.hidden');
-  hiddenElements.forEach((el) => observer.observe(el));
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
+
+const textobserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        let i = 0;
+        if (entry.isIntersecting) {
+            entry.target.classList.add('text-show');
+            console.log("shown! " + i);
+        }
+        i++;
+    })
+}, {
+    rootMargin: "-25%",
+    threshold: 1
+})
+const hiddenText = document.querySelectorAll('.text-hidden');
+hiddenText.forEach((el) => textobserver.observe(el));
 //https://youtube.com/shorts/VTw2cUVFl1c?feature=share
