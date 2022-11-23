@@ -4,12 +4,15 @@ const wrapper = document.getElementById("outer-wrapper");
 const circle = document.getElementById('spotlight');
 
 const text1 = document.getElementById('one-text1');
-console.log("left " + text1.style.left);
-
+const stickytexts = document.querySelectorAll(".text-sticky");
 let circx = 0;
 let currentcircx = parseInt(circle.style.left.replace("px", ""));
 let stopShowingText = false;
-let textPos = [];
+const textPos = new Map(); 
+
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+
 wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
     let left = e.clientX;
     let top = e.clientY;
@@ -21,12 +24,17 @@ wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
 //throttle scroll event, maybe with iodash?? 
 
 //function to toggle hidden/shown classes based on current scroll distance >= or <=
+//make sure elements line up... 
 wrapper.addEventListener('scroll', (e) => {
-    if(wrapper.scrollTop >= 3500) {
-        stopShowingText = true;
-    } else {
-        stopShowingText = false;
-    }
+    stickytexts.forEach((text) => {
+        if(textPos.has(text.id) && text.classList.contains("text-show")) {
+            let dist = wrapper.scrollTop - textPos.get(text.id);
+            console.log(wrapper.scrollTop - textPos.get(text.id));
+            text.style.transform = `translateX(${dist - (vw/4)}px)`;
+            text.style.left += (wrapper.scrollTop - textPos.get(text.id)) + "px";
+        }
+    })
+    
     circle.style.left = circx + wrapper.scrollTop + 'px';
     currentcircx = parseInt(circle.style.left.replace("px", ""));
 
@@ -149,7 +157,8 @@ const textobserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('text-show');
-            console.log("shown! " + i);
+            textPos.set(entry.target.id, wrapper.scrollTop);
+            console.log("id = " + entry.target.id + "value: " + textPos.get(entry.target.id));
         } else {
             entry.target.classList.remove('text-show');
         }

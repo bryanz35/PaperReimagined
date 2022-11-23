@@ -197,24 +197,18 @@ nav {
 }
 
 #one-text1 {
-    top: 40px;
-    left: 30px;
     font-size: 3vh;
     grid-row: 2;
     grid-column: 3;
 }
 
 #one-text2 {
-    top: 40px;
-    left: 30px;
     font-size: 3vh;
     grid-row: 3/4;
     grid-column: 4;
 }
 
 #one-text3 {
-    top: 40px;
-    left: 30px;
     font-size: 3vh;
     grid-row: 5;
     grid-column: 5;
@@ -227,7 +221,7 @@ nav {
 .text-show {
     opacity: 1;
     transform: translateY(0);
-    transition: all 1s;
+    transition: opacity 1s;
 }
 /*make invisible element??*/
 #one-froggie {
@@ -238,6 +232,7 @@ nav {
 }
 
 #one-big-statement {
+    align-self: right;
     height: 20vh;
     grid-column: 7;
     grid-row: 5;
