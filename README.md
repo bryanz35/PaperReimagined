@@ -1,6 +1,6 @@
 # PaperReimagined
  Website for the Paper Reimagined club
- Hi there is no license for this code. AKA this is my code and dont touch it >:( 
+ Hi there is no license for this code. Please do not copy it without permission. 
  
  contributors: Bryan Zhong (bryanz35), Anna Zhong (annazhong3)
  
@@ -14,3 +14,4 @@
  - finally fix the box
  - add something to fill white space on first page (curved lines? see fireship video and "borrow" code)
  - continue testing and convert everything into vh?? 
+ - text animation works in vscode but not in browser?? 

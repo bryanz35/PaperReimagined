@@ -144,17 +144,20 @@ const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
 
 const textobserver = new IntersectionObserver((entries) => {
+    let i = 0;
+
     entries.forEach((entry) => {
-        let i = 0;
         if (entry.isIntersecting) {
             entry.target.classList.add('text-show');
             console.log("shown! " + i);
+        } else {
+            entry.target.classList.remove('text-show');
         }
         i++;
     })
 }, {
-    rootMargin: "-25%",
-    threshold: 1
+    rootMargin: "-15%",
+    threshold: 0.75
 })
 const hiddenText = document.querySelectorAll('.text-hidden');
 hiddenText.forEach((el) => textobserver.observe(el));
