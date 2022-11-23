@@ -10,8 +10,10 @@ let currentcircx = parseInt(circle.style.left.replace("px", ""));
 let stopShowingText = false;
 const textPos = new Map(); 
 
-const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+
+// alert("Hey, this site currently under construction, so some images and features are missing.");
 
 wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
     let left = e.clientX;
@@ -30,8 +32,10 @@ wrapper.addEventListener('scroll', (e) => {
         if(textPos.has(text.id) && text.classList.contains("text-show")) {
             let dist = wrapper.scrollTop - textPos.get(text.id);
             console.log(wrapper.scrollTop - textPos.get(text.id));
+            //text.style.left = (parseFloat(text.style.left.replace("px", "")) + dist) + "px";
+            console.log(text.style.left);
             text.style.transform = `translateX(${dist - (vw/4)}px)`;
-            text.style.left += (wrapper.scrollTop - textPos.get(text.id)) + "px";
+            //get client rects??
         }
     })
     
