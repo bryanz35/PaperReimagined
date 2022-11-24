@@ -51,7 +51,7 @@ body {
     display: flex;
     flex-direction: row;
     /*width must be the sum of all slide widths to maintain same ratio*/
-    width: calc(770vw + 615vh + 1200px);
+    width: calc(570vw + 715vh + 1200px);
     /*dw about the rest*/
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
@@ -380,8 +380,8 @@ nav {
 
 .slide-three {
     background: #f4f4f4;
-    width: 150vh;
-    min-width: 140vh;
+    width: 180vh;
+    min-width: 160vh;
     height: 100vh;
     display: grid;
     /*event boxes are maxed at a width of 60vw, so 2nd column should be maxed at 80vw or so in fr*/
@@ -401,8 +401,8 @@ nav {
     justify-content: space-between;
     overflow-y: scroll;
     min-height: 60vh;
-    max-width: 60vh;
-    min-width: 50vh;
+    max-width: 80vh;
+    min-width: 70vh;
     z-index: 5;
 }
 
@@ -571,7 +571,7 @@ nav {
 .slide-five {
     display: grid;
     background: var(--cp-white);
-    width: 200vw;
+    width: 80vh;
     height: 100vh;
     grid-template-columns: minmax(0, 1fr) minmax(0, 14fr) minmax(0, 5fr);
     grid-template-rows: minmax(0, 1fr) repeat(4, minmax(0, 3fr)) minmax(0, 1fr);
@@ -725,11 +725,6 @@ nav {
 
 /*make text #433f3d*/
 
-#nav-socials {
-    display:grid;
-    grid-column: 3;
-    grid-row: 3;
-}
 #iconContainers {
     position: absolute;
     display: flex;
