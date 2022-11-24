@@ -175,7 +175,7 @@ nav {
     grid-gap: 10px; */
     display: grid;
     /*1fr 10fr 12fr 8fr 3fr 3fr 3fr 1fr, total 41 frs, 10*/
-    grid-template-columns: minmax(0fr, 1fr) minmax(0fr, 10fr) repeat(3, minmax(0fr, 4fr)) minmax(6fr, 10fr) minmax(0fr, 8fr) minmax(0fr, 3fr);
+    grid-template-columns: minmax(0fr, 1fr) minmax(0fr, 10fr) minmax(0fr, 12fr) minmax(6fr, 10fr) minmax(0fr, 8fr) minmax(0fr, 3fr);
     grid-template-rows: repeat(4, minmax(0, 3fr)) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -192,6 +192,7 @@ nav {
 #one-text2,
 #one-text3 {
     /*make elements hidden, position with javascript*/
+    justify-self: start;
     z-index: 3;
     max-width: 40vw;
     min-width: 500px;
@@ -205,20 +206,20 @@ nav {
 }
 
 #one-text2 {
-    left: 0;
+    margin-left: 600px;
     font-size: 3vh;
     grid-row: 3;
-    grid-column: 4;
+    grid-column: 3;
 }
 
 #one-text3 {
-    left: 0;
+    margin-left: 1200px;
     font-size: 3vh;
     grid-row: 5;
-    grid-column: 5;
+    grid-column: 3;
 }
 .text-hidden {
-    opacity: 0.5;
+    opacity: 0;
     transform: translateY(7vh);
     transition: all 1s;
 }

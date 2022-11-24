@@ -36,7 +36,7 @@ wrapper.addEventListener('scroll', (e) => {
     stickytexts.forEach((text) => {
         if(textPos.has(text.id) && text.classList.contains("text-show") && stopShowingText === false) {
             console.log("passed");
-            let dist = wrapper.scrollTop - textPos.get(text.id) - vw/10;
+            let dist = wrapper.scrollTop - textPos.get(text.id) - vw/4;
             //text.style.left = (parseFloat(text.style.left.replace("px", "")) + dist) + "px";
             text.style.transform = `translateX(${dist}px)`;
             //get client rects??
@@ -48,7 +48,9 @@ wrapper.addEventListener('scroll', (e) => {
         pos1 = textPos.get(text1.id);
         stickytexts.forEach((text) => {
             text.classList.remove("text-show");
+            text.classList.add("text-hidden");
             textPos.delete(text.id);
+            text.style.transform = "";
         })
     }
     circle.style.left = circx + wrapper.scrollTop + 'px';
@@ -166,8 +168,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
    return Math.sqrt(Math.pow(aPosition.x - bPosition.x, 2));  
  }
  
- const offset = getDistanceBetweenElements(text2, text1);
- const offset2 = getDistanceBetweenElements(text3, text1);
+ const offset = 600;
+ const offset2 = 1200;
 
 
  console.log("offset " + offset);
@@ -200,8 +202,8 @@ const textobserver = new IntersectionObserver((entries) => {
                     textPos.set(text1.id, wrapper.scrollTop);
 
                 }
-                textPos.set(text2.id, (textPos.get(text1.id) + offset * 0.8))
-                textPos.set(text3.id, (textPos.get(text1.id) + offset2 * 0.8))
+                textPos.set(text2.id, (textPos.get(text1.id) + offset))
+                textPos.set(text3.id, (textPos.get(text1.id) + offset2))
                 console.log("1.. " + textPos.get(text1.id));
                 console.log("2.. " + textPos.get(text2.id));
                 console.log("3.. " + textPos.get(text3.id));
@@ -221,6 +223,6 @@ hiddenText.forEach((el) => textobserver.observe(el));
 //https://youtube.com/shorts/VTw2cUVFl1c?feature=share
 
 //1495
-//maintain offset ratio of around 0.77??
+//maintain offset ratio of around 0.77, 1.1610??
 //offset 1155.29150390625
 //offset2 2408.70849609375
