@@ -1,3 +1,5 @@
+//please do not use code without permission
+
 const links = document.querySelectorAll(".links");
 const slides = document.querySelectorAll(".slide");
 const wrapper = document.getElementById("outer-wrapper");
@@ -14,10 +16,11 @@ let currentcircx = parseInt(circle.style.left.replace("px", ""));
 let stopShowingText = false;
 const textPos = new Map(); 
 
+//hi there!
+console.log("                     _                 _ _   _     \r\n                    | |               (_) | | |    \r\n _ __ ___   __ _  __| | ___  __      ___| |_| |__  \r\n| \'_ ` _ \\ \/ _` |\/ _` |\/ _ \\ \\ \\ \/\\ \/ \/ | __| \'_ \\ \r\n| | | | | | (_| | (_| |  __\/  \\ V  V \/| | |_| | | |\r\n|_| |_| |_|\\__,_|\\__,_|\\___|   \\_\/\\_\/ |_|\\__|_| |_|   \r\n\r\n     ****   ****     ****   ****\r\n   ***         *** ***         ***\r\n  **             ***             **\r\n **               *              **\r\n **                             **\r\n  ***                          **\r\n    ***                      ***\r\n      ***                  ***\r\n        ****            ****\r\n           ****       ****\r\n              ***   ***\r\n                *****\r\n                  * \r\n                                                    \r\n");
 
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-console.log(vw);
 // alert("Hey, this site currently under construction, so some images and features are missing.");
 let pos1; 
 wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
@@ -26,7 +29,6 @@ wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
     circle.style.left = (wrapper.scrollTop + left) + 'px';
     circle.style.top = top + 'px';
     circx = e.clientX;
-    console.log(currentcircx);
   });
 //throttle scroll event, maybe with iodash?? 
 
@@ -35,15 +37,13 @@ wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
 wrapper.addEventListener('scroll', (e) => {
     stickytexts.forEach((text) => {
         if(textPos.has(text.id) && text.classList.contains("text-show") && stopShowingText === false) {
-            console.log("passed");
             let dist = wrapper.scrollTop - textPos.get(text.id) - vw/2;
             //text.style.left = (parseFloat(text.style.left.replace("px", "")) + dist) + "px";
             text.style.transform = `translateX(${dist}px)`;
             //get client rects??
         }
     })
-    if(textPos.has(stickytexts[1].id) && (Math.abs(wrapper.scrollTop - textPos.get(stickytexts[1].id)) >= (vh**1.45 * 0.07))) {
-        console.log("removed all");
+    if(textPos.has(stickytexts[1].id) && ((wrapper.scrollTop - textPos.get(stickytexts[2].id)) >= (vw*1.6)) || (wrapper.scrollTop - textPos.get(stickytexts[0].id)) <= (-0.1*vw)) {
         stopShowingText = true;
         pos1 = textPos.get(text1.id);
         stickytexts.forEach((text) => {
@@ -86,9 +86,7 @@ wrapper.addEventListener('scroll', (e) => {
 
     slides_active = Array.from(slides_active2);
 });
-document.addEventListener('click', (e) => {
-    console.log(wrapper.scrollTop);
-});
+
 let insta = document.getElementById("instagram_id");
 insta.addEventListener("mouseleave", function (event) {
     if(insta.classList.contains("insta-background")) {
@@ -172,8 +170,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
  const offset2 = 1200;
 
 
- console.log("offset " + offset);
- console.log("offset2 " + offset2); 
 
  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -194,7 +190,6 @@ const textobserver = new IntersectionObserver((entries) => {
             stopShowingText = false;
             entry.target.classList.add('text-show');
             entry.target.classList.remove('text-hidden');
-            console.log("shown!");
             if(!textPos.has(text1.id)) {
                 if (Number.isFinite(pos1)) {
                     textPos.set(text1.id, pos1);
@@ -204,9 +199,7 @@ const textobserver = new IntersectionObserver((entries) => {
                 }
                 textPos.set(text2.id, (textPos.get(text1.id) + offset))
                 textPos.set(text3.id, (textPos.get(text1.id) + offset2))
-                console.log("1.. " + textPos.get(text1.id));
-                console.log("2.. " + textPos.get(text2.id));
-                console.log("3.. " + textPos.get(text3.id));
+
             }
         } else {
             entry.target.classList.remove('text-show');
