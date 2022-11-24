@@ -628,11 +628,6 @@ nav {
 }
 */
 .box-content {
-    background-image: radial-gradient(
-            /*color of dots, 8% is size of dots*/
-            rgba(0, 0, 0, 0.2) 8%,
-            /*transparent is blur*/
-            transparent 8%); 
     background-position: 0% 0%;
     background-size: 5vmin 5vmin;
     height: calc(100% - 10vmin);
@@ -733,10 +728,23 @@ nav {
     grid-column: 3;
     grid-row: 3;
 }
-
+#iconContainers {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 20px;
+    width: 20vmin;
+    height: 5vmin;
+    left: 22vmin;
+    top: 70vmin;
+}
 .icons {
     cursor: pointer;
     z-index: 3;
+    
 }
 /* facebook icon*/
 

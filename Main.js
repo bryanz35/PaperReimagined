@@ -36,13 +36,13 @@ wrapper.addEventListener('scroll', (e) => {
     stickytexts.forEach((text) => {
         if(textPos.has(text.id) && text.classList.contains("text-show") && stopShowingText === false) {
             console.log("passed");
-            let dist = wrapper.scrollTop - textPos.get(text.id) - vw/4;
+            let dist = wrapper.scrollTop - textPos.get(text.id) - vw/2;
             //text.style.left = (parseFloat(text.style.left.replace("px", "")) + dist) + "px";
             text.style.transform = `translateX(${dist}px)`;
             //get client rects??
         }
     })
-    if(textPos.has(stickytexts[1].id) && (Math.abs(wrapper.scrollTop - textPos.get(stickytexts[1].id)) >= (vh * 2))) {
+    if(textPos.has(stickytexts[1].id) && (Math.abs(wrapper.scrollTop - textPos.get(stickytexts[1].id)) >= (vh**1.45 * 0.07))) {
         console.log("removed all");
         stopShowingText = true;
         pos1 = textPos.get(text1.id);
