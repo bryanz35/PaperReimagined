@@ -207,7 +207,7 @@ nav {
 #one-text2 {
     left: 0;
     font-size: 3vh;
-    grid-row: 3/4;
+    grid-row: 3;
     grid-column: 4;
 }
 
@@ -218,7 +218,7 @@ nav {
     grid-column: 5;
 }
 .text-hidden {
-    opacity: 0;
+    opacity: 0.5;
     transform: translateY(7vh);
     transition: all 1s;
 }
@@ -727,10 +727,21 @@ nav {
 
 /*make text #433f3d*/
 
+#nav-socials {
+    display:grid;
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.icons {
+    cursor: pointer;
+    z-index: 3;
+}
 /* facebook icon*/
+
 .fa-facebook {
     cursor: pointer;
-    color: rgb(255, 255, 255);
+    color: rgba(0, 0, 0);
     /* transition: 1s; */
 }
 
@@ -741,7 +752,7 @@ nav {
 /* youtube icon*/
 .fa-youtube {
     cursor: pointer;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     /* transition: 1s; */
 }
 
@@ -753,17 +764,17 @@ nav {
 .fa-instagram {
     opacity: 1;
     cursor: pointer;
-    color: rgb(255, 255, 255);
-    background: white;
+    color: rgb(0,0,0);
+    background: black;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    z-index: 1;
     /* transition: opacity 0.5s linear;  */
 }
 
 #instagram_id {
     opacity: 1;
     visibility: visible;
+    z-index: 3;
 }
 
 #instagram_id:hover::before {
@@ -777,6 +788,7 @@ nav {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: opacity 0.5s linear;
+    z-index: 3;
 }
 
 #credits {

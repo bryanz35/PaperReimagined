@@ -4,17 +4,22 @@ const wrapper = document.getElementById("outer-wrapper");
 const circle = document.getElementById('spotlight');
 
 const text1 = document.getElementById('one-text1');
+const text2 = document.getElementById('one-text2');
+const text3 = document.getElementById('one-text3');
+
+
 const stickytexts = document.querySelectorAll(".text-sticky");
 let circx = 0;
 let currentcircx = parseInt(circle.style.left.replace("px", ""));
 let stopShowingText = false;
 const textPos = new Map(); 
 
+
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-
+console.log(vw);
 // alert("Hey, this site currently under construction, so some images and features are missing.");
-
+let pos1; 
 wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
     let left = e.clientX;
     let top = e.clientY;
@@ -29,16 +34,23 @@ wrapper.addEventListener('mousemove', function(e) { // the hover spotlight
 //make sure elements line up... 
 wrapper.addEventListener('scroll', (e) => {
     stickytexts.forEach((text) => {
-        if(textPos.has(text.id) && text.classList.contains("text-show")) {
-            let dist = wrapper.scrollTop - textPos.get(text.id);
-            console.log(wrapper.scrollTop - textPos.get(text.id));
+        if(textPos.has(text.id) && text.classList.contains("text-show") && stopShowingText === false) {
+            console.log("passed");
+            let dist = wrapper.scrollTop - textPos.get(text.id) - vw/10;
             //text.style.left = (parseFloat(text.style.left.replace("px", "")) + dist) + "px";
-            console.log(text.style.left);
-            text.style.transform = `translateX(${dist - (vw/4)}px)`;
+            text.style.transform = `translateX(${dist}px)`;
             //get client rects??
         }
     })
-    
+    if(textPos.has(stickytexts[1].id) && (Math.abs(wrapper.scrollTop - textPos.get(stickytexts[1].id)) >= (vh * 2))) {
+        console.log("removed all");
+        stopShowingText = true;
+        pos1 = textPos.get(text1.id);
+        stickytexts.forEach((text) => {
+            text.classList.remove("text-show");
+            textPos.delete(text.id);
+        })
+    }
     circle.style.left = circx + wrapper.scrollTop + 'px';
     currentcircx = parseInt(circle.style.left.replace("px", ""));
 
@@ -98,11 +110,9 @@ function isInViewport(el) {
 
 function arraysEqual(a, b) {
     if (a == null || b == null) {
-        //console.log("null");
         return false
     };
     const passed = false;
-    //console.log(a.indexOf(true));
     if (a.indexOf(true) === b.indexOf(true) && a.indexOf(true) !== -1) return true;
     
     if (a.length !== b.length) return false;
@@ -141,6 +151,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
  * 
  * 
  */
+ function getPositionAtCenter(element) {
+    const {top, left, width, height} = element.getBoundingClientRect();
+    return {
+      x: left + width / 2,
+      y: top + height / 2
+    };
+  }
+ 
+ function getDistanceBetweenElements(a, b) {
+   const aPosition = getPositionAtCenter(a);
+   const bPosition = getPositionAtCenter(b);
+ 
+   return Math.sqrt(Math.pow(aPosition.x - bPosition.x, 2));  
+ }
+ 
+ const offset = getDistanceBetweenElements(text2, text1);
+ const offset2 = getDistanceBetweenElements(text3, text1);
+
+
+ console.log("offset " + offset);
+ console.log("offset2 " + offset2); 
 
  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -149,25 +180,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       } else {
         entry.target.classList.remove('show');
       }
-      console.log(entry.intersectionRatio + entry)
     })
   });
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
 
+//offset is updating...
 const textobserver = new IntersectionObserver((entries) => {
-    let i = 0;
-
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
+            stopShowingText = false;
             entry.target.classList.add('text-show');
-            textPos.set(entry.target.id, wrapper.scrollTop);
-            console.log("id = " + entry.target.id + "value: " + textPos.get(entry.target.id));
+            entry.target.classList.remove('text-hidden');
+            console.log("shown!");
+            if(!textPos.has(text1.id)) {
+                if (Number.isFinite(pos1)) {
+                    textPos.set(text1.id, pos1);
+                } else {
+                    textPos.set(text1.id, wrapper.scrollTop);
+
+                }
+                textPos.set(text2.id, (textPos.get(text1.id) + offset * 0.8))
+                textPos.set(text3.id, (textPos.get(text1.id) + offset2 * 0.8))
+                console.log("1.. " + textPos.get(text1.id));
+                console.log("2.. " + textPos.get(text2.id));
+                console.log("3.. " + textPos.get(text3.id));
+            }
         } else {
             entry.target.classList.remove('text-show');
+            entry.target.classList.add('text-hidden');
         }
-        i++;
     })
+    
 }, {
     rootMargin: "-15%",
     threshold: 0.75
@@ -175,3 +219,8 @@ const textobserver = new IntersectionObserver((entries) => {
 const hiddenText = document.querySelectorAll('.text-hidden');
 hiddenText.forEach((el) => textobserver.observe(el));
 //https://youtube.com/shorts/VTw2cUVFl1c?feature=share
+
+//1495
+//maintain offset ratio of around 0.77??
+//offset 1155.29150390625
+//offset2 2408.70849609375
