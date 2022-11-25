@@ -1,6 +1,7 @@
 # PaperReimagined
  Website for the Paper Reimagined club
- Hi there is no license for this code. Please do not copy it without permission. 
+ 
+There is no license for this code. Please do not copy it without permission. 
  
  contributors: Bryan Zhong (bryanz35), Anna Zhong (annazhong3)
  
