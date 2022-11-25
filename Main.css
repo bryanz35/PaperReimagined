@@ -51,7 +51,7 @@ body {
     display: flex;
     flex-direction: row;
     /*width must be the sum of all slide widths to maintain same ratio*/
-    width: calc(570vw + 715vh + 1200px);
+    width: calc(570vw + 755vh + 1200px);
     /*dw about the rest*/
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
@@ -571,7 +571,7 @@ nav {
 .slide-five {
     display: grid;
     background: var(--cp-white);
-    width: 80vh;
+    width: 120vh;
     height: 100vh;
     grid-template-columns: minmax(0, 1fr) minmax(0, 14fr) minmax(0, 5fr);
     grid-template-rows: minmax(0, 1fr) repeat(4, minmax(0, 3fr)) minmax(0, 1fr);
